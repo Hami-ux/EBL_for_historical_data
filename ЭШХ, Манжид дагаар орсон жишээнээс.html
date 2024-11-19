@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Монгол Улсын Шийдвэр Гаргалтын Төстэй Нөхцөлд Зөвлөмж</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0a1a2b;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        .chatbot-container {
+            background-color: #1c3a5a;
+            width: 400px;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .chatbot-container h1 {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #aed6f1;
+        }
+        .question {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        .input-area {
+            display: flex;
+            gap: 10px;
+        }
+        .input-area input {
+            flex: 1;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: none;
+        }
+        .input-area button {
+            padding: 10px;
+            background-color: #5cb85c;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .input-area button:hover {
+            background-color: #4cae4c;
+        }
+        .response {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #aed6f1;
+            display: none;
+        }
+    </style>
+    <script>
+        function getResponse() {
+            const userInput = document.getElementById("userInput").value.toLowerCase();
+            const response = document.getElementById("response");
+
+            if (userInput.includes("орос") || userInput.includes("хятад")) {
+                response.innerText = "Зөвлөмж: Хэрэв Монгол улс Орос эсвэл Хятадтай харилцаа хурцдаж, маргаан үүссэн тохиолдолд, аль нэг улсын эсрэг бодлого хэрэгжүүлэхгүй байх нь ашигтай байж болно.";
+            } else if (userInput.includes("дотоод улс төрийн зөрчил")) {
+                response.innerText = "Зөвлөмж: Шийдвэр гаргахад ашиглаж буй мэдээллийг найдвартай байдлыг хангаж, зөв шийдвэр гаргах нь Монгол Улсын аюулгүй байдлыг хангах, эдийн засгийн хувьд тогтвортой байх баталгаа болж чадна.";
+            } else {
+                response.innerText = "Таны асуултын талаар тодорхой мэдээлэл олдсонгүй. Та асуултаа дахин оруулна уу.";
+            }
+            response.style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <div class="chatbot-container">
+        <h1>Түүхэн сургамжийг шийдвэр гаргалтад ашиглах нь</h1>
+        <div class="question">
+            <p>Нөхцөл байдлын талаар асуултаа оруулна уу:</p>
+        </div>
+        <div class="input-area">
+            <input type="text" id="userInput" placeholder="Асуултаа бичнэ үү">
+            <button onclick="getResponse()">Асуух</button>
+        </div>
+        <div class="response" id="response">
+            <!-- Зөвлөмжийн хариулт энд гарч ирнэ -->
+        </div>
+    </div>
+</body>
+</html>
